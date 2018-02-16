@@ -1,4 +1,4 @@
-var timelines = require('./timelines/index.js')
+var timelines = require('./timelines.js')
 var axios = require('axios')
 
 var setupAxios = function (options) {

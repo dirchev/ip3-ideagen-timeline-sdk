@@ -21,8 +21,8 @@ test('Timeline Create', function () {
   })
 })
 
-test('Timeline Edit', function () {
-  timelines.edit('1234', {Title: 'TestTitle2'})
+test('Timeline Edit Title', function () {
+  timelines.editTitle('1234', 'TestTitle2')
 
   var request = axiosMock.requests.pop()
   expect(request.method).toEqual('PUT')
