@@ -53,6 +53,40 @@ module.exports = function (options, axios) {
           TimelineId: id,
         }
       )
+    },
+    linkEvent: function (timelineId, eventId) {
+      return axios.put(
+        '/Timeline/LinkEvent',
+        {
+          TenantId: options.TenantId,
+          AuthToken: options.AuthToken,
+          TimelineId: timelineId,
+          EventId: eventId,
+        }
+      )
+    },
+    unlinkEvent: function (timelineId, eventId) {
+      return axios.put(
+        '/Timeline/UnlinkEvent',
+        {
+          TenantId: options.TenantId,
+          AuthToken: options.AuthToken,
+          TimelineId: timelineId,
+          EventId: eventId,
+        }
+      )
+    },
+    getLinkedEvents: function (timelineId) {
+      return axios.get(
+        '/Timeline/GetEvents',
+        {
+          headers: {
+            TenantId: options.TenantId,
+            AuthToken: options.AuthToken,
+            TimelineId: timelineId
+          }
+        }
+      )
     }
   }
 }

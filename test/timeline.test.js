@@ -72,3 +72,44 @@ test('Timeline Delete', function () {
     TenantId: 'TestTenant'
   })
 })
+
+test('Timeline Link Event', function () {
+  timelines.linkEvent('12345', '54321')
+
+  var request = axiosMock.requests.pop()
+  expect(request.method).toEqual('PUT')
+  expect(request.route).toEqual('/Timeline/LinkEvent')
+  expect(request.data).toEqual({
+    TimelineId: '12345',
+    EventId: '54321',
+    AuthToken: 'TestAuth',
+    TenantId: 'TestTenant'
+  })
+})
+
+test('Timeline Unlink Event', function () {
+  timelines.unlinkEvent('12345', '54321')
+
+  var request = axiosMock.requests.pop()
+  expect(request.method).toEqual('PUT')
+  expect(request.route).toEqual('/Timeline/UnlinkEvent')
+  expect(request.data).toEqual({
+    TimelineId: '12345',
+    EventId: '54321',
+    AuthToken: 'TestAuth',
+    TenantId: 'TestTenant'
+  })
+})
+
+test('Timeline Get Linked Event', function () {
+  timelines.getLinkedEvents('12345')
+
+  var request = axiosMock.requests.pop()
+  expect(request.method).toEqual('GET')
+  expect(request.route).toEqual('/Timeline/GetEvents')
+  expect(request.config.headers).toEqual({
+    TimelineId: '12345',
+    AuthToken: 'TestAuth',
+    TenantId: 'TestTenant'
+  })
+})
