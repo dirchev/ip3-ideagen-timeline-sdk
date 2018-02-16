@@ -1,5 +1,3 @@
-var qs = require('querystring').stringify
-
 module.exports = function (options, axios) {
   return {
     getAll: function () {
@@ -35,14 +33,14 @@ module.exports = function (options, axios) {
         }
       )
     },
-    edit: function (id, data) {
+    editTitle: function (id, title) {
       return axios.put(
         '/Timeline/EditTitle',
         {
           TenantId: options.TenantId,
           AuthToken: options.AuthToken,
           TimelineId: id,
-          ...data
+          Title: title
         }
       )
     },
