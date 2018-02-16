@@ -1,22 +1,41 @@
 {
-  "name": "ideagen-timeline-api",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ideagen-timeline-sdk",
+  "version": "0.0.1",
+  "description": "This lib provides an SDK for the Timeline API from Ideagen. See the API code [here](https://github.com/gael-ltd/IdeagenGCU2018)",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "jest": {
-    "testMatch": ["**/*.test.js"]
+    "testMatch": [
+      "**/*.test.js"
+    ]
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Dimitar Mirchev <dimitar.mirchev96@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "axios": "0.17.1",
-    "querystring": "0.2.0"
+    "axios": "0.17.1"
   },
   "devDependencies": {
     "axios-mock-adapter": "1.13.1",
     "jest": "22.3.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dirchev/ip3-ideagen-timeline-sdk.git"
+  },
+  "keywords": [
+    "ideagen",
+    "timeline",
+    "gcu",
+    "sdk",
+    "ip3"
+  ],
+  "bugs": {
+    "url": "https://github.com/dirchev/ip3-ideagen-timeline-sdk/issues"
+  },
+  "homepage": "https://github.com/dirchev/ip3-ideagen-timeline-sdk#readme"
 }
