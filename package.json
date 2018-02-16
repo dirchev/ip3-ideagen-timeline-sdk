@@ -1,0 +1,22 @@
+{
+  "name": "ideagen-timeline-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testMatch": ["**/*.test.js"]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "0.17.1",
+    "querystring": "0.2.0"
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "1.13.1",
+    "jest": "22.3.0"
+  }
+}
