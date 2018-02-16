@@ -1,4 +1,5 @@
 var timelines = require('./timelines.js')
+var timelineEvents = require('./timeline-events.js')
 var axios = require('axios')
 
 var setupAxios = function (options) {
@@ -16,6 +17,7 @@ class TimelineAPI {
       options.endpoint = 'http://gcu.ideagen-development.com'
     setupAxios(options)
     this.Timelines = timelines(options, axios)
+    this.TimelineEvents = timelineEvents(options, axios)
   }
 }
 
