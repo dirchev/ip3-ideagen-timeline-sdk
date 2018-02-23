@@ -4,6 +4,7 @@
   "description": "This lib provides an SDK for the Timeline API from Ideagen. See the API code [here](https://github.com/gael-ltd/IdeagenGCU2018)",
   "main": "index.js",
   "scripts": {
+    "build": "babel src -d build",
     "test": "jest"
   },
   "jest": {
@@ -18,6 +19,9 @@
   },
   "devDependencies": {
     "axios-mock-adapter": "1.13.1",
+    "babel-cli": "6.26.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.6.1",
     "jest": "22.3.0"
   },
   "directories": {
