@@ -6,7 +6,12 @@ var setupAxios = function (options) {
   axios.defaults.baseURL = options.endpoint
   axios.interceptors.response.use(function (response) {
     if (typeof response.data === 'string') {
-      return JSON.parse(response.data)
+      var data
+      try {
+        data = JSON.parse(response.data) // in case of double quoted JSON
+      } catch (e) {
+        data = {message: response.data} // in case of string response
+      }
     } else {
       return response.data
     }
