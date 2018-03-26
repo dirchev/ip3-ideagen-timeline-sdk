@@ -1,3 +1,5 @@
+const parseCreationTimeStamp = require('./utils').parseCreationTimeStamp
+
 module.exports = function (options, axios) {
   return {
     getAll: function () {
@@ -9,7 +11,9 @@ module.exports = function (options, axios) {
             'AuthToken': options.AuthToken
           }
         }
-      )
+      ).then((timelines) => {
+        return timelines.map(parseCreationTimeStamp)
+      })
     },
     get: function (timelineId) {
       return axios.get(
@@ -21,7 +25,7 @@ module.exports = function (options, axios) {
             TimelineId: timelineId
           }
         }
-      )
+      ).then(parseCreationTimeStamp)
     },
     create: function (data) {
       return axios.put(
@@ -31,7 +35,7 @@ module.exports = function (options, axios) {
           AuthToken: options.AuthToken,
           ...data
         }
-      )
+      ).then(parseCreationTimeStamp)
     },
     editTitle: function (id, title) {
       return axios.put(
@@ -42,7 +46,7 @@ module.exports = function (options, axios) {
           TimelineId: id,
           Title: title
         }
-      )
+      ).then(parseCreationTimeStamp)
     },
     delete: function (id) {
       return axios.put(

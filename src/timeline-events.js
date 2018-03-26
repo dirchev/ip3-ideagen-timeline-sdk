@@ -1,3 +1,5 @@
+const parseCreationTimeStamp = require('./utils').parseCreationTimeStamp
+
 module.exports = function (options, axios) {
   return {
     get: function (timelineEventId) {
@@ -10,7 +12,7 @@ module.exports = function (options, axios) {
             TimelineEventId: timelineEventId,
           }
         }
-      )
+      ).then(parseCreationTimeStamp)
     },
     create: function (data) {
       return axios.put(
@@ -20,7 +22,7 @@ module.exports = function (options, axios) {
           AuthToken: options.AuthToken,
           ...data
         }
-      )
+      ).then(parseCreationTimeStamp)
     },
     editTitle: function (timelineEventId, title) {
       return axios.put(
@@ -31,7 +33,7 @@ module.exports = function (options, axios) {
           TimelineEventId: timelineEventId,
           Title: title
         }
-      )
+      ).then(parseCreationTimeStamp)
     },
     editDescription: function (timelineEventId, description) {
       return axios.put(
@@ -42,7 +44,7 @@ module.exports = function (options, axios) {
           TimelineEventId: timelineEventId,
           Description: description
         }
-      )
+      ).then(parseCreationTimeStamp)
     },
     editLocation: function (timelineEventId, location) {
       return axios.put(
@@ -53,7 +55,7 @@ module.exports = function (options, axios) {
           TimelineEventId: timelineEventId,
           Location: location
         }
-      )
+      ).then(parseCreationTimeStamp)
     },
     editDateTime: function (timelineEventId, datetime) {
       return axios.put(
@@ -64,7 +66,7 @@ module.exports = function (options, axios) {
           TimelineEventId: timelineEventId,
           EventDateTime: datetime
         }
-      )
+      ).then(parseCreationTimeStamp)
     },
     delete: function (timelineEventId) {
       return axios.put(
