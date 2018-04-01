@@ -30,6 +30,9 @@ var TimelineAPI = function TimelineAPI(options) {
 
   if (!options.endpoint) options.endpoint = 'https://gcu.ideagen-development.com';
   setupAxios(options);
+  if (options.debug) {
+    require('axios-debug')(axios);
+  }
   this.Timelines = timelines(options, axios);
   this.TimelineEvents = timelineEvents(options, axios);
 };
