@@ -111,6 +111,18 @@ module.exports = function (options, axios) {
           }
         }
       )
+    },
+    getAttachments: function (timelineEventId) {
+      return axios.get(
+        '/TimelineEventAttachment/GetAttachments',
+        {
+          headers: {
+            TenantId: options.TenantId,
+            AuthToken: options.AuthToken,
+            TimelineEventId: timelineEventId
+          }
+        }
+      )
     }
   }
 }
