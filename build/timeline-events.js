@@ -84,6 +84,15 @@ module.exports = function (options, axios) {
           TimelineEventId: timelineEventId
         }
       });
+    },
+    getAttachments: function getAttachments(timelineEventId) {
+      return axios.get('/TimelineEventAttachment/GetAttachments', {
+        headers: {
+          TenantId: options.TenantId,
+          AuthToken: options.AuthToken,
+          TimelineEventId: timelineEventId
+        }
+      });
     }
   };
 };
