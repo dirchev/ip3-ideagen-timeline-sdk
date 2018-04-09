@@ -1,6 +1,6 @@
 {
   "name": "ideagen-timeline-sdk",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "This lib provides an SDK for the Timeline API from Ideagen. See the API code [here](https://github.com/gael-ltd/IdeagenGCU2018)",
   "main": "index.js",
   "scripts": {
