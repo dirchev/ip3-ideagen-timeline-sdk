@@ -2,6 +2,21 @@ const parseCreationTimeStamp = require('./utils').parseCreationTimeStamp
 
 module.exports = function (options, axios) {
   return {
+    getTimelinesAndEvents: function () {
+      return axios.get(
+        '/Timeline/GetAllTimelinesAndEvent',
+        {
+          headers: {
+            'TenantId': options.TenantId,
+            'AuthToken': options.AuthToken
+          }
+        }
+      ).then((result) => {
+        return {
+          Timelines: result.Timelines.map(parseCreationTimeStamp)
+        }
+      })
+    },
     getAll: function () {
       return axios.get(
         '/Timeline/GetTimelines',
