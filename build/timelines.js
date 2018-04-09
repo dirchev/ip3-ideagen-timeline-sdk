@@ -6,6 +6,18 @@ var parseCreationTimeStamp = require('./utils').parseCreationTimeStamp;
 
 module.exports = function (options, axios) {
   return {
+    getTimelinesAndEvents: function getTimelinesAndEvents() {
+      return axios.get('/Timeline/GetAllTimelinesAndEvent', {
+        headers: {
+          'TenantId': options.TenantId,
+          'AuthToken': options.AuthToken
+        }
+      }).then(function (result) {
+        return {
+          Timelines: result.Timelines.map(parseCreationTimeStamp)
+        };
+      });
+    },
     getAll: function getAll() {
       return axios.get('/Timeline/GetTimelines', {
         headers: {
